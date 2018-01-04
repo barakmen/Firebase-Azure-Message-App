@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 using Firebase.Database;
 using Firebase.Database.Query;
+using MessagesManager.Startup;
 using Newtonsoft.Json;
 
 namespace MessagesManager
@@ -12,11 +13,20 @@ namespace MessagesManager
 
     public class Program
     {
+
+        
+
+
         public async Task<Dinosaur> Run()
         {
+            var firebase = new FirebaseClient(FBConfigurations.FIREBASE_PROJ_URL);
 
+            var dinoadd = await firebase
+            .Child("dinosaurs")
+            .PostAsync(new Dinosaur());
 
-            var firebase = new FirebaseClient("https://azure-sending-messages.firebaseio.com/");
+            
+
             var dinos = await firebase
               .Child("dinosaurs")
               .OnceAsync<Dinosaur>();
@@ -25,13 +35,12 @@ namespace MessagesManager
             {
                 Console.WriteLine($"{dino.Key} is {dino.Object.Height}m high.");
             }
-
+            
             return null;
         }
     }
     public class Dinosaur
     {
-        [JsonProperty(PropertyName = "Height")]
         public double Height { get; set; }
     }
 }
