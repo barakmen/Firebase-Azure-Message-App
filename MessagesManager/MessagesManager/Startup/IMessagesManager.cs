@@ -16,20 +16,18 @@ namespace MessagesManager.Startup
             }
         }
 
-        public IMessagesManager(string userId)
+        public IMessagesManager(User user)
         {
-            this._userId = userId;
+            this._userId = user.NAME;
         }
         
 
         abstract public void addChannel(Channel newChannel);
         abstract public void removeChannel(Channel newChannel);
         abstract public void addListenerToChannel(Channel newChannel, EventHandler handler);
-        abstract public void sendMessageToChannel(Channel channel, Message message);
+        abstract public void sendMessageToChannel(User user, Channel channel, Message message);
+        abstract public void getAllMessagesFromChannel(Channel channel);
 
-
-       
-
-
+        abstract public void addUser(User user);
     }
 }

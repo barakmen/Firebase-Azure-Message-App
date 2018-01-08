@@ -10,7 +10,8 @@ namespace MessagesManager.Startup
         // firebase metadata:
         public const string FIREBASE_PROJ_URL = "https://azure-sending-messages.firebaseio.com/";
         //firebase database construction:
-        public const string ROOT_CHANNELS = "channels";
+        public const string ROOT_CHANNELS = "Channels";
+        public const string ROOT_USERS = "Users";
 
 
 

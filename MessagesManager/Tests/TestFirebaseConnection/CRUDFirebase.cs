@@ -28,13 +28,6 @@ namespace Tests.TestFirebaseConnection
 
         }
 
-        [TestMethod]
-        public void addDataTest()
-        {
-             addData();
-            Assert.AreNotEqual(false, true);
-
-        }
 
         public async Task addData()
         {

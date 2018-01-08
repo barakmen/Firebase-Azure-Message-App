@@ -1,12 +1,17 @@
-﻿using System;
+﻿using MessagesManager.FirebaseConnection;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MessagesManager.Models
 {
-    public class Channel
+    public class Channel : IFirebaseData
     {
-        string name;
-        List<Message> messages;
+        
+        public Channel(string id) : base(id)
+        {
+
+        }
+        
     }
 }
